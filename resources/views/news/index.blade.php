@@ -1,0 +1,43 @@
+@extends('layouts.app', ['pageSlug' => 'news'])
+@section('content')
+<div class="content">
+    <div class="row">
+        @foreach($news as $n)
+        <div class="col-auto mb-3">
+            <div class="card" style="width: 18rem">
+                <div class="card-header">
+                    <h3 class="card-title">{{ $n->headline }}</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-subtitle" style="text-align: justify">{{ $n->subhead }}</h4>
+                    {{-- <p style="text-align: justify">{{ str_replace('<br />', "\r\n", mb_substr(strip_tags($n->content, ['<br>']), 0, 300)) . '...'}}</p> --}}
+                </div>
+                <div class="card-footer">
+                    <div class="row justify-content-end">
+                        {{-- <a href="{{ route('news.edit', $n)}}" class="btn btn-primary btn-sm">{{ __('Edit') }}</a> --}}
+                        <div class="col-sm-6">
+                            <a href="{{ route('news.show', $n) }}" class="btn btn-primary btn-sm">{{ __('Read More') }}</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="dropdown">
+                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                    <a class="dropdown-item" href="{{ route('news.edit', $n) }}">{{ __('Edit') }}</a>
+                                    <form method="POST" action="{{ route('news.destroy', $n) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" class="dropdown-item" value="{{ __('Delete news') }}">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@endsection
