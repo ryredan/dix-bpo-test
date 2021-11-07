@@ -63,6 +63,10 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
+        if(Auth::user()->cannot('view', $news))
+        {
+            abort(403);
+        }
         return view('news.show', ['news' => $news]);
     }
 
@@ -74,6 +78,10 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
+        if(Auth::user()->cannot('view', $news))
+        {
+            abort(403);
+        }
         return view('news.editor')->with('news', $news);
     }
 
@@ -86,6 +94,11 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
+
+        if($request->user()->cannot('update', $news))
+        {
+            abort(403);
+        }
         $validation = $request->validate([
             'headline' => ['required'],
             'subhead' => ['required'],
@@ -109,6 +122,10 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
+        if(Auth::user()->cannot('destroy', $news))
+        {
+            abort(403);
+        }
         $news->delete();
         return redirect()->back();
         
@@ -119,7 +136,7 @@ class NewsController extends Controller
         $news = News::where('headline', 'like', '%'. $req->query('search_news'). '%')
             ->where('user_id', Auth::user()->id)
             ->get();
-            
+
         return view('news.search', ['news' => $news]);
     }
 }
