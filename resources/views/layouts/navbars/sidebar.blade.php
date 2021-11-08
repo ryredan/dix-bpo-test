@@ -15,8 +15,8 @@
             --}}
             <li>
                 <a data-toggle="collapse" href="#news-menu" aria-expanded="true">
-                        <i class="far fa-newspaper" ></i>
-                        <span class="nav-link-text" >{{ __('News') }}</span>
+                        <i class="far fa-newspaper"></i>
+                        <span class="nav-link-text">Notícias</span>
                         <b class="caret mt-1"></b>
                     </a>
                 <div class="collapse show" id="news-menu">
@@ -24,13 +24,13 @@
                         <li @if ($pageSlug == 'publish') class="active " @endif>
                             <a href="{{ route('news.create')  }}">
                                 <i class="tim-icons icon-bulb-63"></i>
-                                <p>{{ __('Publish news') }}</p>
+                                <p>Publicar novo post</p>
                             </a>
                         </li>
                         <li @if ($pageSlug == 'news') class="active " @endif>
                             <a href="{{ route('news.index')  }}">
                                 <i class="tim-icons icon-paper"></i>
-                                <p>{{ __('List') }}</p>
+                                <p>Listar Postagens</p>
                             </a>
                         </li>
                     </ul>
@@ -39,7 +39,7 @@
             <li @if ($pageSlug == 'users') class="active " @endif>
                 <a href="{{ route('user.index')  }}">
                     <i class="tim-icons icon-bullet-list-67"></i>
-                    <p>{{ __('User Management') }}</p>
+                    <p>Gerenciar usuários</p>
                 </a>
             </li>
             

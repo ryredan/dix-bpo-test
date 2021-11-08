@@ -30,10 +30,10 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-8">
-                        <h4 class="card-title">{{ __('Users') }}</h4>
+                        <h4 class="card-title">Usuários</h4>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add User') }}</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">Adicionar Usuário</a>
                     </div>
                 </div>
             </div>

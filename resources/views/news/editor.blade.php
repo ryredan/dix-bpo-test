@@ -1,11 +1,11 @@
-@extends('layouts.app', ['pageSlug' => 'news'])
+@extends('layouts.app', ['pageSlug' => 'publish'])
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">{{ __('New Post') }}</h2>
+                    <h2 class="card-title">Nova publicação</h2>
                 </div>
                 <div class="card-body">
                     @if($news->exists)
@@ -16,15 +16,15 @@
                     @endif
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="headline" id="headline" class="form-control" placeholder="{{ __('Headline') }}" value="{{ old('headline', $news->headline) }}">
+                            <input type="text" name="headline" id="headline" class="form-control" placeholder="Título" value="{{ old('headline', $news->headline) }}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subhead" id="subhead" class="form-control" placeholder="{{ __('Subhead') }}" value="{{ old('subhead', $news->subhead) }}">
+                            <input type="text" name="subhead" id="subhead" class="form-control" placeholder="Subtitulo" value="{{ old('subhead', $news->subhead) }}">
                         </div>
                         <div class="form-group">
                             <textarea id="news-content" name="news_content">{{ old('news_content', $news->content) }}</textarea>
                         </div>
-                        <input type="submit" value="{{ __('Publish') }}" class="btn btn-primary btn-round btn-lg">
+                        <input type="submit" value="Publicar" class="btn btn-primary btn-round btn-lg">
                     </form>
                 </div>
             </div>

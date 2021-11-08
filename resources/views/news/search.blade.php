@@ -14,9 +14,9 @@
                 </div>
                 <div class="card-footer">
                     <div class="row justify-content-end">
-                        {{-- <a href="{{ route('news.edit', $n)}}" class="btn btn-primary btn-sm">{{ __('Edit') }}</a> --}}
+                        {{-- <a href="{{ route('news.edit', $n)}}" class="btn btn-primary btn-sm">Editar</a> --}}
                         <div class="col-sm-6">
-                            <a href="{{ route('news.show', $n) }}" class="btn btn-primary btn-sm">{{ __('Read More') }}</a>
+                            <a href="{{ route('news.show', $n) }}" class="btn btn-primary btn-sm">Ler Mais</a>
                         </div>
                         <div class="col-sm-3">
                             <div class="dropdown">
@@ -24,11 +24,11 @@
                                     <i class="fas fa-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a class="dropdown-item" href="{{ route('news.edit', $n) }}">{{ __('Edit') }}</a>
+                                    <a class="dropdown-item" href="{{ route('news.edit', $n) }}">Editar</a>
                                     <form method="POST" action="{{ route('news.destroy', $n) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="submit" class="dropdown-item" value="{{ __('Delete news') }}">
+                                        <input type="submit" class="dropdown-item" value="Apagar">
                                     </form>
                                 </div>
                             </div>

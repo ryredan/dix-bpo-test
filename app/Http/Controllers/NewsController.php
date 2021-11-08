@@ -27,7 +27,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.editor');
+        $news = new News();
+        return view('news.editor', ['news' => $news]);
     }
 
     /**

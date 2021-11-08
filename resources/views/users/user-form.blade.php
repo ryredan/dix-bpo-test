@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ __('New profile') }}</h5>
+                    <h4 class="card-title">Novo Usuário</h4>
                     @if($user->exists)
                     <form action="{{ route('user.update', $user) }}" method="post">
                         @method('PUT')
@@ -19,7 +19,7 @@
                                         <i class="tim-icons icon-single-02"></i>
                                     </div>
                                 </div>
-                                <input type="text" id="name" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', $user->name) }}">
+                                <input type="text" id="name" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nome" value="{{ old('name', $user->name) }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
                             <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
@@ -28,7 +28,7 @@
                                         <i class="tim-icons icon-email-85"></i>
                                     </div>
                                 </div>
-                                <input type="text" id="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', $user->email) }}">
+                                <input type="text" id="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" value="{{ old('email', $user->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                                         <i class="tim-icons icon-lock-circle"></i>
                                     </div>
                                 </div>
-                                <input type="password" id="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}">
+                                <input type="password" id="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Senha">
                                 @include('alerts.feedback', ['field' => 'password'])
                             </div>
                             <div class="input-group">
@@ -48,11 +48,11 @@
                                         <i class="tim-icons icon-lock-circle"></i>
                                     </div>
                                 </div>
-                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}">
+                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirmar senha">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-round btn-lg" value="{{ __('Create') }}">
+                            <input type="submit" class="btn btn-primary btn-round btn-lg" value="Criar">
                         </div>
                     </form>
                 </div>
